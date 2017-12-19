@@ -12,6 +12,8 @@ import android.support.v7.widget.AppCompatTextView;
 import android.view.View;
 
 import suplex.theblacklist.R;
+import suplex.theblacklist.database.DatabaseHelper;
+import suplex.theblacklist.objects.User;
 import suplex.theblacklist.validation.InputValidation;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
@@ -34,8 +36,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private AppCompatTextView appCompatTextViewLoginLink;
 
     private InputValidation inputValidation;
-    // private DBHelper databaseHelper;
-    // private User user;
+    private DatabaseHelper databaseHelper;
+    private User user;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -131,7 +133,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         if (!databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim())) {
 
-            user.setName(textInputEditTextName.getText().toString().trim());
+            user.setFirstName(textInputEditTextName.getText().toString().trim());
             user.setEmail(textInputEditTextEmail.getText().toString().trim());
             user.setPassword(textInputEditTextPassword.getText().toString().trim());
             user.setSecureNum(10110101);

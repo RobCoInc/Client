@@ -9,6 +9,9 @@ import android.view.ViewGroup;
 
 import java.util.List;
 
+import suplex.theblacklist.R;
+import suplex.theblacklist.objects.User;
+
 /**
  * Created by Morgan on 19/12/2017.
  */
@@ -32,7 +35,7 @@ public class UsersRecyclerAdapter extends RecyclerView.Adapter<UsersRecyclerAdap
 
     @Override
     public void onBindViewHolder(UserViewHolder holder, int position) {
-        holder.textViewName.setText(listUsers.get(position).getName());
+        holder.textViewName.setText(listUsers.get(position).getFirstName());
         holder.textViewEmail.setText(listUsers.get(position).getEmail());
         holder.textViewPassword.setText(listUsers.get(position).getPassword());
     }

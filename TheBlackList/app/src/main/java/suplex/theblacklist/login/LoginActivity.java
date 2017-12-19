@@ -99,26 +99,27 @@ public abstract class LoginActivity extends AppCompatActivity implements View.On
             return;
         }
 
-        if (databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim()
-                , textInputEditTextPassword.getText().toString().trim())) {
-
-            if(databaseHelper.isAdmin(textInputEditTextEmail.getText().toString().trim()))
-            {
-                Intent adminIntent = new Intent(activity, AdminMainActivity.class);
-                adminIntent.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
-                emptyInputEditText();
-                startActivity(adminIntent);
-            }
-            else
-            {
-                Intent accountIntent = new Intent(activity, UserMainActivity.class);
-                accountIntent.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
-                emptyInputEditText();
-                startActivity(accountIntent);
-            }
-        } else {
-            Snackbar.make(nestedScrollView, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show();
-        }
+//
+//        if (databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim()
+//                , textInputEditTextPassword.getText().toString().trim())) {
+//
+//            if(databaseHelper.isAdmin(textInputEditTextEmail.getText().toString().trim()))
+//            {
+//                Intent adminIntent = new Intent(activity, AdminMainActivity.class);
+//                adminIntent.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
+//                emptyInputEditText();
+//                startActivity(adminIntent);
+//            }
+//            else
+//            {
+//                Intent accountIntent = new Intent(activity, UserMainActivity.class);
+//                accountIntent.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
+//                emptyInputEditText();
+//                startActivity(accountIntent);
+//            }
+//        } else {
+//            Snackbar.make(nestedScrollView, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show();
+//        }
     }
 
     private void emptyInputEditText() {

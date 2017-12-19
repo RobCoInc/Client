@@ -17,4 +17,5 @@
     <string name="password">Password</string>
     <string name="email">Email</string>
     <string name="name">Name</string>
+    <string name="error_valid_email_password">Invalid Password.</string>
 </resources>

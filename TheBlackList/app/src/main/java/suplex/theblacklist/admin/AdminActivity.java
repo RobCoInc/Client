@@ -2,7 +2,6 @@ package suplex.theblacklist.admin;
 
 import android.content.Intent;
 import android.graphics.Color;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.SpannableString;
 import android.text.style.ForegroundColorSpan;
@@ -12,9 +11,10 @@ import android.view.MenuItem;
 
 import suplex.theblacklist.R;
 import suplex.theblacklist.database.DatabaseHelper;
+import suplex.theblacklist.navDrawer.DrawerBaseActivity;
 import suplex.theblacklist.objects.User;
 
-public class AdminActivity extends AppCompatActivity {
+public class AdminActivity extends DrawerBaseActivity {
 
     protected User admin;
 

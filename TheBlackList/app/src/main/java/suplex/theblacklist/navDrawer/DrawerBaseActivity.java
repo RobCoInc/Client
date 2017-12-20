@@ -29,6 +29,8 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Me
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_drawer_base);
+
+
         view_stub = (FrameLayout) findViewById(R.id.view_stub);
         navigation_view = (NavigationView) findViewById(R.id.navigation);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);

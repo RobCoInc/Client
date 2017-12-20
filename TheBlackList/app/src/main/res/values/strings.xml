@@ -7,8 +7,8 @@
     <string name="text_not_member">Don\'t have an account? Register.</string>
     <string name="error_message_email">Please enter a valid email.</string>
     <string name="error_message_password">Enter your password.</string>
-    <string name="hint_name">Enter your name...</string>
-    <string name="hint_confirm_password">Confirm your password...</string>
+    <string name="hint_name">Full Name</string>
+    <string name="hint_confirm_password">Confirm Password</string>
     <string name="text_register">Register</string>
     <string name="error_message_name">Enter a name.</string>
     <string name="error_password_match">Enter matching passwords.</string>
@@ -18,4 +18,5 @@
     <string name="email">Email</string>
     <string name="name">Name</string>
     <string name="error_valid_email_password">Invalid Password.</string>
+    <string name="already_a_member_login">Already a member? Login</string>
 </resources>

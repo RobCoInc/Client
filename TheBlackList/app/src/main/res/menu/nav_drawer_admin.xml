@@ -1,0 +1,31 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_admin_new_location"
+            android:icon="@drawable/ic_add_location_black_24dp"
+            android:title="@string/new_location" />
+        <item
+            android:id="@+id/nav_admin_add_shift"
+            android:icon="@drawable/ic_add_circle_outline_black_24dp"
+            android:title="@string/add_shift" />
+        <item
+            android:id="@+id/nav_admin_assign_shift"
+            android:icon="@drawable/ic_person_pin_circle_black_24dp"
+            android:title="@string/assign_shifts" />
+        <item
+            android:id="@+id/nav_user_view_shift"
+            android:icon="@drawable/ic_timer_black_24dp"
+            android:title="@string/view_shifts" />
+        <item
+            android:id="@+id/nav_user_make_arrest"
+            android:icon="@drawable/ic_person_add_black_24dp"
+            android:title="@string/make_arrest" />
+        <item
+            android:id="@+id/nav_user_search_arrest"
+            android:icon="@drawable/ic_search_black_24dp"
+            android:title="@string/search_arrest" />
+    </group>
+
+
+</menu>

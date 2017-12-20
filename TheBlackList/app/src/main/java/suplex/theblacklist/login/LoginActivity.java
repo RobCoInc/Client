@@ -9,12 +9,14 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.AppCompatButton;
 import android.support.v7.widget.AppCompatTextView;
+import android.view.MenuItem;
 import android.view.View;
 
 import suplex.theblacklist.R;
+import suplex.theblacklist.navDrawer.DrawerBaseActivity;
 import suplex.theblacklist.validation.InputValidation;
 
-public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends DrawerBaseActivity implements View.OnClickListener {
     private final AppCompatActivity activity = LoginActivity.this;
 
     private NestedScrollView nestedScrollView;
@@ -124,4 +126,6 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         textInputEditTextEmail.setText(null);
         textInputEditTextPassword.setText(null);
     }
+
+
 }

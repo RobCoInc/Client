@@ -24,6 +24,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".admin.AdminMainActivity" />
         <activity android:name=".admin.UserListActivity" />
+        <activity android:name=".navDrawer.DrawerBaseActivity"></activity>
     </application>
 
 </manifest>

@@ -13,11 +13,12 @@ import android.widget.ListView;
 
 import suplex.theblacklist.login.LoginActivity;
 import suplex.theblacklist.login.RegisterActivity;
+import suplex.theblacklist.navDrawer.DrawerBaseActivity;
 import suplex.theblacklist.navDrawer.NavigationDrawer;
 
-public class LandingActivity extends AppCompatActivity {
+public class LandingActivity extends DrawerBaseActivity{
 
-    Boolean admin = true;
+    Boolean admin = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +28,14 @@ public class LandingActivity extends AppCompatActivity {
         } else {
             setContentView(R.layout.activity_landing);
         }
-//        startActivity(new Intent(this, LoginActivity.class));
-        NavigationDrawer mNavDrawer = new NavigationDrawer(this);
+        startActivity(new Intent(this, LoginActivity.class));
+//        NavigationDrawer mNavDrawer = new NavigationDrawer(this);
 
         //splash screen before login
+    }
+
+    @Override
+    public boolean onMenuItemClick(MenuItem menuItem) {
+        return false;
     }
 }

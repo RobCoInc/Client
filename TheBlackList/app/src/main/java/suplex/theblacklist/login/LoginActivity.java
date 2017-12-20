@@ -14,7 +14,7 @@ import android.view.View;
 import suplex.theblacklist.R;
 import suplex.theblacklist.validation.InputValidation;
 
-public abstract class LoginActivity extends AppCompatActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private final AppCompatActivity activity = LoginActivity.this;
 
     private NestedScrollView nestedScrollView;
@@ -36,8 +36,6 @@ public abstract class LoginActivity extends AppCompatActivity implements View.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
-
-        getSupportActionBar().hide();
 
         // databaseHelper = new DBHelper(this);
 

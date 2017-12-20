@@ -18,6 +18,13 @@
     <string name="email">Email</string>
     <string name="name">Name</string>
     <string name="error_valid_email_password">Invalid Password.</string>
+
+    <string name="location_list">List Locations</string>
+    <string name="user_list">List Users</string>
+    <string name="new_arrest">Make an Arrest</string>
+    <string name="search_arrests">Search Arrests</string>
+    <string name="emergency">Emergency</string>
+    <string name="add_shift_button">Add Shift</string>
     <string name="already_a_member_login">Already a member? Login</string>
     <string name="title_activity_nav_drawer">NavDrawer</string>
 
@@ -27,9 +34,6 @@
     <string name="action_settings">Settings</string>
     <string name="menu_drawer_header">Menu Drawer Header</string>
     <string name="view_shifts">View Shifts</string>
-    <string name="make_arrest">Make Arrest</string>
-    <string name="search_arrest">Search Arrest</string>
     <string name="new_location">New Location</string>
-    <string name="add_shift">Add Shift</string>
     <string name="assign_shifts">Assign Shifts</string>
 </resources>

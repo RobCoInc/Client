@@ -1,14 +1,11 @@
 package suplex.theblacklist.navDrawer;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ArrayAdapter;
-import android.widget.ListView;
 import android.widget.Toast;
 
 import suplex.theblacklist.R;
@@ -24,7 +21,7 @@ public class NavigationDrawer {
         this.activity = activity;
         mDrawerLayout = activity.findViewById(R.id.drawer_layout);
         navigationView = activity.findViewById(R.id.navigation);
-        populateMenu(navigationView.getMenu());
+        populateAdminMenu(navigationView.getMenu());
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -35,13 +32,13 @@ public class NavigationDrawer {
 
     }
 
-    private void populateMenu(Menu menu) {
+    private void populateAdminMenu(Menu menu) {
         menu.add(0, R.id.nav_admin_new_location, Menu.NONE, R.string.new_location).setIcon(R.drawable.ic_add_location_black_24dp);
         menu.add(0, R.id.nav_admin_add_shift, Menu.NONE, R.string.add_shift).setIcon(R.drawable.ic_add_circle_outline_black_24dp);
         menu.add(0, R.id.nav_admin_assign_shift, Menu.NONE, R.string.assign_shifts).setIcon(R.drawable.ic_person_pin_circle_black_24dp);
         menu.add(0, R.id.nav_user_view_shift, Menu.NONE, R.string.view_shifts).setIcon(R.drawable.ic_timer_black_24dp);
         menu.add(0, R.id.nav_user_make_arrest, Menu.NONE, R.string.make_arrest).setIcon(R.drawable.ic_person_add_black_24dp);
-        menu.add(0, R.id.nav_user_search_arrest, Menu.NONE, R.string.search_arrest).setIcon(R.drawable.ic_search_black_24dp);
+        menu.add(0, R.id.nav_user_search_arrest, Menu.NONE, R.string.search_arrests).setIcon(R.drawable.ic_search_black_24dp);
 
 
     }

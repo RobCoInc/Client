@@ -16,7 +16,7 @@ import suplex.theblacklist.database.DatabaseHelper;
 
 import static android.widget.CursorAdapter.FLAG_REGISTER_CONTENT_OBSERVER;
 
-public class LocationListActivity extends AppCompatActivity {
+public class LocationListActivity extends AdminActivity {
     private final String TAG = "LocationListActivity";
 
     DatabaseHelper db;

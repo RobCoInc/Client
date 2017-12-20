@@ -5,6 +5,7 @@ import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.widget.Toolbar;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -23,7 +24,7 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Me
     private DrawerLayout mDrawerLayout;
     private Menu drawerMenu;
     private ActionBarDrawerToggle mDrawerToggle;
-
+    Toolbar mToolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +34,15 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Me
         navigation_view = (NavigationView) findViewById(R.id.navigation);
         mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
         mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, 0, 0);
+
+
+        mToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+        getSupportActionBar().setLogo(R.mipmap.ic_launcher);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+
         NavigationDrawer navigationDrawer = new NavigationDrawer(this);
         drawerMenu = navigation_view.getMenu();
         for (int i = 0; i < drawerMenu.size(); i++) {

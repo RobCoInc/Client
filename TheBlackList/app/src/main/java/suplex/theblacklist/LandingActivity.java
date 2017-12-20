@@ -28,7 +28,7 @@ public class LandingActivity extends DrawerBaseActivity{
         } else {
             setContentView(R.layout.activity_landing);
         }
-        startActivity(new Intent(this, LoginActivity.class));
+//        startActivity(new Intent(this, LoginActivity.class));
 //        NavigationDrawer mNavDrawer = new NavigationDrawer(this);
 
         //splash screen before login

@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.support.design.widget.TextInputEditText;
 import android.support.design.widget.TextInputLayout;
+import android.text.Html;
 import android.view.View;
 import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
@@ -30,7 +31,7 @@ public class InputValidation {
     public boolean isInputEditTextFilled(TextInputEditText textInputEditText, TextInputLayout textInputLayout, String message) {
         String value = textInputEditText.getText().toString().trim();
         if (value.isEmpty()) {
-            textInputLayout.setError(message);
+            textInputLayout.setError(Html.fromHtml("<font color=#000000>" + message + "</font>"));
             hideKeyboardFrom(textInputEditText);
             return false;
         } else {
@@ -52,7 +53,7 @@ public class InputValidation {
     public boolean isInputEditTextEmail(TextInputEditText textInputEditText, TextInputLayout textInputLayout, String message) {
         String value = textInputEditText.getText().toString().trim();
         if (value.isEmpty() || !android.util.Patterns.EMAIL_ADDRESS.matcher(value).matches()) {
-            textInputLayout.setError(message);
+            textInputLayout.setError(Html.fromHtml("<font color=#000000>" + message + "</font>"));
             hideKeyboardFrom(textInputEditText);
             return false;
         } else {
@@ -65,8 +66,8 @@ public class InputValidation {
         String value1 = textInputEditText1.getText().toString().trim();
         String value2 = textInputEditText2.getText().toString().trim();
         if (!value1.contentEquals(value2)) {
-            textInputLayout.setError(message);
-            hideKeyboardFrom(textInputEditText2);
+            textInputLayout.setError(Html.fromHtml("<font color=#000000>" + message + "</font>"));
+             hideKeyboardFrom(textInputEditText2);
             return false;
         } else {
             textInputLayout.setErrorEnabled(false);

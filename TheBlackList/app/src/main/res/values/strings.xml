@@ -18,4 +18,11 @@
     <string name="email">Email</string>
     <string name="name">Name</string>
     <string name="error_valid_email_password">Invalid Password.</string>
+    <string name="new_location">Create New Location</string>
+    <string name="location_list">List Locations</string>
+    <string name="user_list">List Users</string>
+    <string name="new_arrest">Make an Arrest</string>
+    <string name="search_arrests">Search Arrests</string>
+    <string name="emergency">Emergency</string>
+    <string name="add_shift_button">Add Shift</string>
 </resources>

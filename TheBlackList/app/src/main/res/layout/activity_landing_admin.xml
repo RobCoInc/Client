@@ -30,7 +30,7 @@
             app:itemBackground="@color/colorWhite"
             app:itemIconTint="@color/colorPrimaryDark"
             app:itemTextColor="@color/colorPrimaryDark"
-            app:menu="@menu/nav_drawer_basic" />
+            app:menu="@menu/nav_drawer_admin" />
 
     </android.support.v4.widget.DrawerLayout>
 

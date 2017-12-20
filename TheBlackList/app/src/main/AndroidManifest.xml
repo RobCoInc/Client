@@ -19,11 +19,9 @@
         <activity
             android:name=".login.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name=".login.RegisterActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity android:name=".admin.AdminMainActivity" />
         <activity android:name=".admin.UserListActivity" />
     </application>

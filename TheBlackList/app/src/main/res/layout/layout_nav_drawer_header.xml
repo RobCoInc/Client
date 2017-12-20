@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="250dp"
+    android:background="?attr/colorAccent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical">
+
+    <!-- Start of Header Logo & Wordmark -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="120dp"
+        android:background="@color/colorWhite"
+        android:gravity="center_horizontal">
+
+        <!-- Logo -->
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:scaleType="fitCenter"
+            app:srcCompat="@drawable/crest" />
+
+        <!-- Explicit Space -->
+        <Space
+            android:layout_width="20dp"
+            android:layout_height="match_parent" />
+
+        <!-- Wordmark -->
+        <TextView
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="@string/menu_drawer_header"
+            android:text="SUPLEX"
+            android:textSize="20sp" />
+
+    </LinearLayout>
+    <!-- End of Header Logo & Wordmark -->
+
+    <!-- Separator -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginBottom="10dp"
+        android:src="@drawable/misc_nav_header_separator" />
+
+    <!-- Start of User Specific Greeting -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorWhite"
+        android:orientation="vertical"
+        android:padding="10dp">
+
+        <!-- Daytime Greeting -->
+        <TextView
+            android:id="@+id/nav_header_time_of_day"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Good Afternoon,"
+            android:textColor="@color/colorPrimaryDark"
+            android:textSize="24sp" />
+
+        <!-- Name of User -->
+        <TextView
+            android:id="@+id/nav_header_user_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Friend"
+            android:textColor="@color/colorPrimaryLighter"
+            android:textSize="28sp" />
+
+    </LinearLayout>
+    <!-- End of User Specific Greeting -->
+
+    <!-- Separator -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="10dp"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/misc_nav_header_separator" />
+
+
+</LinearLayout>

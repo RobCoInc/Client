@@ -13,7 +13,9 @@ import android.view.MenuItem;
 import android.view.View;
 
 import suplex.theblacklist.R;
+import suplex.theblacklist.database.DatabaseHelper;
 import suplex.theblacklist.navDrawer.DrawerBaseActivity;
+import suplex.theblacklist.user.UserMainActivity;
 import suplex.theblacklist.validation.InputValidation;
 
 public class LoginActivity extends DrawerBaseActivity implements View.OnClickListener {
@@ -32,14 +34,14 @@ public class LoginActivity extends DrawerBaseActivity implements View.OnClickLis
     private AppCompatTextView textViewLinkRegister;
 
     private InputValidation inputValidation;
-    // private DBHelper databaseHelper;
+    private DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        // databaseHelper = new DBHelper(this);
+        databaseHelper = new DatabaseHelper();
 
         // databaseHelper.seedAdmin();
         initViews();
@@ -98,11 +100,20 @@ public class LoginActivity extends DrawerBaseActivity implements View.OnClickLis
         if (!inputValidation.isInputEditTextFilled(textInputEditTextPassword, textInputLayoutPassword, getString(R.string.error_message_password))) {
             return;
         }
+        String password = databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim());
 
-//
+        if (password.equals(textInputEditTextPassword.getText().toString().trim()))
+        {
+            Intent accountIntent = new Intent(activity, UserMainActivity.class);
+            accountIntent.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
+            emptyInputEditText();
+            startActivity(accountIntent);
+        }
+
+
 //        if (databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim()
 //                , textInputEditTextPassword.getText().toString().trim())) {
-//
+
 //            if(databaseHelper.isAdmin(textInputEditTextEmail.getText().toString().trim()))
 //            {
 //                Intent adminIntent = new Intent(activity, AdminMainActivity.class);

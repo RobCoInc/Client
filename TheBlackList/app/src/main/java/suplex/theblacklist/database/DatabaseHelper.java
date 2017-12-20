@@ -77,11 +77,11 @@ public class DatabaseHelper {
         return temp;
     }
 
-    public boolean checkUser(String input)
+    public String checkUser(String email)
     {
 
 
-        return true;
+        return getJSON("http://159.203.30.147/api/users/email=" + email + "", 2000);
     }
 
 }

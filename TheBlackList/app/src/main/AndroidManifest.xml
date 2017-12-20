@@ -25,10 +25,11 @@
         <activity android:name=".admin.AdminActivity" />
         <activity android:name=".admin.AdminMainActivity" />
         <activity android:name=".admin.UserListActivity" />
-        <activity android:name=".navDrawer.DrawerBaseActivity"></activity>
+        <activity android:name=".navDrawer.DrawerBaseActivity" />
         <activity android:name=".admin.NewLocationActivity" />
         <activity android:name=".admin.LocationListActivity" />
         <activity android:name=".admin.LocationActivity" />
+        <activity android:name=".user.UserMainActivity"></activity>
     </application>
 
 </manifest>

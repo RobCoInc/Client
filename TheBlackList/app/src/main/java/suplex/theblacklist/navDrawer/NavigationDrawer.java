@@ -75,6 +75,6 @@ public class NavigationDrawer {
         // Close the navigation drawer
         mDrawerLayout.closeDrawers();
 
-//        startActivity(intent);
+        // startActivity(intent);
     }
 }

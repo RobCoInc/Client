@@ -102,6 +102,7 @@ public class LoginActivity extends DrawerBaseActivity implements View.OnClickLis
         }
         String password = databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim());
 
+
         if (password.equals(textInputEditTextPassword.getText().toString().trim()))
         {
             Intent accountIntent = new Intent(activity, UserMainActivity.class);

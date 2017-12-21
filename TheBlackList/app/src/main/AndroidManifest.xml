@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="suplex.theblacklist">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -29,7 +31,7 @@
         <activity android:name=".admin.NewLocationActivity" />
         <activity android:name=".admin.LocationListActivity" />
         <activity android:name=".admin.LocationActivity" />
-        <activity android:name=".user.UserMainActivity"></activity>
+        <activity android:name=".user.UserMainActivity" />
     </application>
 
 </manifest>

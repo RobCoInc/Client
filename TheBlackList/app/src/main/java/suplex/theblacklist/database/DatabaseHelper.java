@@ -1,5 +1,7 @@
 package suplex.theblacklist.database;
 
+import android.os.AsyncTask;
+
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -60,8 +62,7 @@ public class DatabaseHelper {
                 }
             }
         }
-        return null;
-    }
+        return null;    }
 
     private User formUserObj(String jsonString)
     {

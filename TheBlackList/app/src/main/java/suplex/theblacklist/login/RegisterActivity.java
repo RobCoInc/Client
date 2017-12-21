@@ -130,23 +130,23 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
-        if (!databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim())) {
-
-            user.setFirstName(textInputEditTextName.getText().toString().trim());
-            user.setEmail(textInputEditTextEmail.getText().toString().trim());
-            user.setPassword(textInputEditTextPassword.getText().toString().trim());
-            user.setSecureNum(10110101);
-
-            // databaseHelper.newUser(user);
-
-            // Snack Bar to show success message that record saved successfully
-            Snackbar.make(nestedScrollView, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
-            emptyInputEditText();
-
-        } else {
-            // Snack Bar to show error message that record already exists
-            Snackbar.make(nestedScrollView, getString(R.string.error_email_exists), Snackbar.LENGTH_LONG).show();
-        }
+//        if (!databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim())) {
+//
+//            user.setFirstName(textInputEditTextName.getText().toString().trim());
+//            user.setEmail(textInputEditTextEmail.getText().toString().trim());
+//            user.setPassword(textInputEditTextPassword.getText().toString().trim());
+//            user.setSecureNum(10110101);
+//
+//            // databaseHelper.newUser(user);
+//
+//            // Snack Bar to show success message that record saved successfully
+//            Snackbar.make(nestedScrollView, getString(R.string.success_message), Snackbar.LENGTH_LONG).show();
+//            emptyInputEditText();
+//
+//        } else {
+//            // Snack Bar to show error message that record already exists
+//            Snackbar.make(nestedScrollView, getString(R.string.error_email_exists), Snackbar.LENGTH_LONG).show();
+//        }
 
 
     }

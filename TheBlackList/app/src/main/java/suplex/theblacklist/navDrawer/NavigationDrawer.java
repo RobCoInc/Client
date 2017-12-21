@@ -41,7 +41,7 @@ public class NavigationDrawer {
         menu.add(0, R.id.nav_admin_assign_shift, Menu.NONE, R.string.assign_shifts).setIcon(R.drawable.ic_person_pin_circle_black_24dp);
         menu.add(0, R.id.nav_user_view_shift, Menu.NONE, R.string.view_shifts).setIcon(R.drawable.ic_timer_black_24dp);
         menu.add(0, R.id.nav_user_make_arrest, Menu.NONE, R.string.make_arrest).setIcon(R.drawable.ic_person_add_black_24dp);
-        menu.add(0, R.id.nav_user_search_arrest, Menu.NONE, R.string.search_arrest).setIcon(R.drawable.ic_search_black_24dp);
+//        menu.add(0, R.id.nav_user_search_arrest, Menu.NONE, R.string.search_arrest).setIcon(R.drawable.ic_search_black_24dp);
 
 
     }

@@ -13,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import suplex.theblacklist.R;
 
@@ -24,7 +25,6 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Me
     private Menu drawerMenu;
     private ActionBarDrawerToggle mDrawerToggle;
     Toolbar mToolbar;
-    NavigationDrawer navigationDrawer;
 
 
     @Override
@@ -34,9 +34,11 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Me
         view_stub = findViewById(R.id.view_stub);
         navigation_view = findViewById(R.id.navigation);
         mDrawerLayout = findViewById(R.id.drawer_layout);
-        setupToolbar();
-        navigationDrawer = new NavigationDrawer(this);
         drawerMenu = navigation_view.getMenu();
+
+
+        setupToolbar();
+        populateAdminMenu(navigation_view.getMenu());
         for (int i = 0; i < drawerMenu.size(); i++) {
             drawerMenu.getItem(i).setOnMenuItemClickListener(this);
         }
@@ -77,6 +79,18 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Me
         }
     }
 
+    private void populateAdminMenu(Menu menu) {
+        menu.add(0, R.id.nav_admin_new_location, Menu.NONE, R.string.new_location).setIcon(R.drawable.ic_add_location_black_24dp);
+        menu.add(0, R.id.nav_admin_add_shift, Menu.NONE, R.string.add_shift).setIcon(R.drawable.ic_add_circle_outline_black_24dp);
+        menu.add(0, R.id.nav_admin_assign_shift, Menu.NONE, R.string.assign_shifts).setIcon(R.drawable.ic_person_pin_circle_black_24dp);
+
+
+        menu.add(0, R.id.nav_user_view_shift, Menu.NONE, R.string.view_shifts).setIcon(R.drawable.ic_timer_black_24dp);
+        menu.add(0, R.id.nav_user_make_arrest, Menu.NONE, R.string.new_arrest).setIcon(R.drawable.ic_person_add_black_24dp);
+        menu.add(0, R.id.nav_user_search_arrest, Menu.NONE, R.string.search_arrests).setIcon(R.drawable.ic_search_black_24dp);
+
+    }
+
     @Override
     public void setContentView(View view, ViewGroup.LayoutParams params) {
         if (view_stub != null) {
@@ -86,6 +100,29 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Me
 
     @Override
     public boolean onMenuItemClick(MenuItem menuItem) {
+
+        switch (menuItem.getItemId()) {
+            case R.id.nav_user_view_shift:
+                Toast.makeText(this, "View Shift", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_user_make_arrest:
+                Toast.makeText(this, "Make Arrest", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_user_search_arrest:
+                Toast.makeText(this, "Search Arrest", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_admin_add_shift:
+                Toast.makeText(this, "Add Shift", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_admin_assign_shift:
+                Toast.makeText(this, "Assign Shift", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_admin_new_location:
+                Toast.makeText(this, "New Location", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                return true;
+        }
         return true;
     }
 

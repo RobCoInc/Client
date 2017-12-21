@@ -58,8 +58,6 @@ public class CallAPI extends AsyncTask<String, String, String> {
 
             System.out.println(e.getMessage());
 
-
-
         }
 
         return urlString;

@@ -1,11 +1,12 @@
 package suplex.theblacklist.navDrawer;
 
-import android.support.annotation.Nullable;
+import android.content.res.Configuration;
 import android.support.design.widget.NavigationView;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,22 +24,36 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Me
     private DrawerLayout mDrawerLayout;
     private Menu drawerMenu;
     private ActionBarDrawerToggle mDrawerToggle;
+    Toolbar mToolbar;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         super.setContentView(R.layout.activity_drawer_base);
-        view_stub = (FrameLayout) findViewById(R.id.view_stub);
-        navigation_view = (NavigationView) findViewById(R.id.navigation);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, 0, 0);
-        NavigationDrawer navigationDrawer = new NavigationDrawer(this);
+        view_stub = findViewById(R.id.view_stub);
+        navigation_view = findViewById(R.id.navigation);
+        mDrawerLayout = findViewById(R.id.drawer_layout);
         drawerMenu = navigation_view.getMenu();
+
+
+        setupToolbar();
+        populateAdminMenu(navigation_view.getMenu());
         for (int i = 0; i < drawerMenu.size(); i++) {
             drawerMenu.getItem(i).setOnMenuItemClickListener(this);
         }
 
+    }
+
+    public void setupToolbar() {
+        mToolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(mToolbar);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+//        getSupportActionBar().setLogo(R.drawable.ic_menu_black_24dp);
+        getSupportActionBar().setDisplayUseLogoEnabled(true);
+        getSupportActionBar().setTitle("SPLX");
+        mDrawerToggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+        mDrawerLayout.addDrawerListener(mDrawerToggle);
     }
 
     @Override
@@ -64,6 +79,18 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Me
         }
     }
 
+    private void populateAdminMenu(Menu menu) {
+        menu.add(0, R.id.nav_admin_new_location, Menu.NONE, R.string.new_location).setIcon(R.drawable.ic_add_location_black_24dp);
+        menu.add(0, R.id.nav_admin_add_shift, Menu.NONE, R.string.add_shift).setIcon(R.drawable.ic_add_circle_outline_black_24dp);
+        menu.add(0, R.id.nav_admin_assign_shift, Menu.NONE, R.string.assign_shifts).setIcon(R.drawable.ic_person_pin_circle_black_24dp);
+
+
+        menu.add(0, R.id.nav_user_view_shift, Menu.NONE, R.string.view_shifts).setIcon(R.drawable.ic_timer_black_24dp);
+        menu.add(0, R.id.nav_user_make_arrest, Menu.NONE, R.string.new_arrest).setIcon(R.drawable.ic_person_add_black_24dp);
+        menu.add(0, R.id.nav_user_search_arrest, Menu.NONE, R.string.search_arrests).setIcon(R.drawable.ic_search_black_24dp);
+
+    }
+
     @Override
     public void setContentView(View view, ViewGroup.LayoutParams params) {
         if (view_stub != null) {
@@ -73,7 +100,54 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Me
 
     @Override
     public boolean onMenuItemClick(MenuItem menuItem) {
-        return false;
+
+        switch (menuItem.getItemId()) {
+            case R.id.nav_user_view_shift:
+                Toast.makeText(this, "View Shift", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_user_make_arrest:
+                Toast.makeText(this, "Make Arrest", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_user_search_arrest:
+                Toast.makeText(this, "Search Arrest", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_admin_add_shift:
+                Toast.makeText(this, "Add Shift", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_admin_assign_shift:
+                Toast.makeText(this, "Assign Shift", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_admin_new_location:
+                Toast.makeText(this, "New Location", Toast.LENGTH_SHORT).show();
+                break;
+            default:
+                return true;
+        }
+        return true;
     }
 
+    @Override
+    protected void onPostCreate(Bundle savedInstanceState) {
+        super.onPostCreate(savedInstanceState);
+        mDrawerToggle.syncState();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mDrawerToggle.onConfigurationChanged(newConfig);
+    }
+
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Pass the event to ActionBarDrawerToggle, if it returns
+        // true, then it has handled the app icon touch event
+        if (mDrawerToggle.onOptionsItemSelected(item)) {
+            return true;
+        }
+        // Handle your other action bar items...
+
+        return super.onOptionsItemSelected(item);
+    }
 }

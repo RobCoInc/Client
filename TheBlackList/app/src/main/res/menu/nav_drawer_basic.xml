@@ -8,7 +8,7 @@
         <item
             android:id="@+id/nav_user_make_arrest"
             android:icon="@drawable/ic_person_add_black_24dp"
-            android:title="@string/make_arrest" />
+            android:title="@string/new_arrest" />
         <item
             android:id="@+id/nav_user_search_arrest"
             android:icon="@drawable/ic_search_black_24dp"

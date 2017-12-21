@@ -36,8 +36,6 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Me
         mDrawerLayout = findViewById(R.id.drawer_layout);
         setupToolbar();
         navigationDrawer = new NavigationDrawer(this);
-
-
         drawerMenu = navigation_view.getMenu();
         for (int i = 0; i < drawerMenu.size(); i++) {
             drawerMenu.getItem(i).setOnMenuItemClickListener(this);

@@ -20,7 +20,7 @@ import java.util.HashMap;
 import suplex.theblacklist.R;
 import suplex.theblacklist.database.HttpHandler;
 
-public class UserListActivity extends AppCompatActivity {
+public class UserListActivity extends AdminActivity {
 
     private String TAG = UserListActivity.class.getSimpleName();
 

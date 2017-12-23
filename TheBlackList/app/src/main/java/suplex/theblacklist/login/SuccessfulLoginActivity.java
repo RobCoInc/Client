@@ -13,12 +13,12 @@ import suplex.theblacklist.user.UserMainActivity;
 public class SuccessfulLoginActivity extends AppCompatActivity {
     private final AppCompatActivity activity = SuccessfulLoginActivity.this;
 
-    String email;
-    User currentUser;
+    private String email;
+    private User currentUser;
 
-    Bundle extras;
+    private Bundle extras;
 
-    DatabaseHelper db;
+    private DatabaseHelper db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

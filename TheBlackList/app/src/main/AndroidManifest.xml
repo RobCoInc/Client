@@ -11,7 +11,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-
         <activity android:name=".LandingActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -33,6 +32,7 @@
         <activity android:name=".admin.LocationListActivity" />
         <activity android:name=".admin.LocationActivity" />
         <activity android:name=".user.UserMainActivity" />
+        <activity android:name=".login.SuccessfulLoginActivity"></activity>
     </application>
 
 </manifest>

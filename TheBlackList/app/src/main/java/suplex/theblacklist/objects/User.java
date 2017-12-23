@@ -1,10 +1,12 @@
 package suplex.theblacklist.objects;
 
+import java.io.Serializable;
+
 /**
  * Created by Morgan on 19/12/2017.
  */
 
-public class User {
+public class User implements Serializable{
 
     private long id;
     private String firstName;

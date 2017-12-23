@@ -105,10 +105,14 @@ public class LoginActivity extends DrawerBaseActivity implements View.OnClickLis
 
         if (password.equals(textInputEditTextPassword.getText().toString().trim()))
         {
-            Intent accountIntent = new Intent(activity, UserMainActivity.class);
+            Intent accountIntent = new Intent(activity, SuccessfulLoginActivity.class);
             accountIntent.putExtra("EMAIL", textInputEditTextEmail.getText().toString().trim());
             emptyInputEditText();
             startActivity(accountIntent);
+        }
+        else
+        {
+            Snackbar.make(nestedScrollView, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show();
         }
 
 
@@ -129,8 +133,6 @@ public class LoginActivity extends DrawerBaseActivity implements View.OnClickLis
 //                emptyInputEditText();
 //                startActivity(accountIntent);
 //            }
-//        } else {
-//            Snackbar.make(nestedScrollView, getString(R.string.error_valid_email_password), Snackbar.LENGTH_LONG).show();
 //        }
     }
 

@@ -34,39 +34,9 @@ public class DatabaseHelper {
             String stringUrl = params[0];
             String result;
             String inputLine;
-            try {
-                //Create a URL object holding our url
-                URL myUrl = new URL(stringUrl);
-                //Create a connection
-                HttpURLConnection connection =(HttpURLConnection)
-                        myUrl.openConnection();
-                //Set methods and timeouts
-                connection.setRequestMethod(REQUEST_METHOD);
-                connection.setReadTimeout(READ_TIMEOUT);
-                connection.setConnectTimeout(CONNECTION_TIMEOUT);
 
-                //Connect to our url
-                connection.connect();
-                //Create a new InputStreamReader
-                InputStreamReader streamReader = new
-                        InputStreamReader(connection.getInputStream());
-                //Create a new buffered reader and String Builder
-                BufferedReader reader = new BufferedReader(streamReader);
-                StringBuilder stringBuilder = new StringBuilder();
-                //Check if the line we are reading is not null
-                while((inputLine = reader.readLine()) != null){
-                    stringBuilder.append(inputLine);
-                }
-                //Close our InputStream and Buffered reader
-                reader.close();
-                streamReader.close();
-                //Set our result equal to our stringBuilder
-                result = stringBuilder.toString();
-            }
-            catch(IOException e){
-                e.printStackTrace();
-                result = null;
-            }
+            HttpHandler httpHandler = new HttpHandler();
+            result = httpHandler.makeServiceCall(stringUrl);
             return result;
         }
         protected void onPostExecute(String result){
@@ -94,7 +64,7 @@ public class DatabaseHelper {
         String passwordStr = "";
 
         try {
-            result = checkUser.execute("http://159.203.30.147/api/users/getUserPasswordByEmail/" + email).get();
+            result = checkUser.execute("http://159.203.30.147/api/users/getUserByEmail/" + email).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
@@ -112,6 +82,58 @@ public class DatabaseHelper {
         }
 
         return passwordStr;
+    }
+
+    public User getUserByEmail(String email)
+    {
+        HttpGetRequest getUser = new HttpGetRequest();
+        String result = "{}";
+        User user = new User();
+
+        try {
+            result = getUser.execute("http://159.203.30.147/api/users/getUserByEmail/" + email).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            JSONArray arr = new JSONArray(result);
+            JSONObject jObj = arr.getJSONObject(0);
+
+            user.setId(jObj.getLong("_id"));
+            user.setPassword(jObj.getString("password"));
+            user.setEmail(jObj.getString("email"));
+            user.setFirstName(jObj.getString("firstName"));
+            user.setLastName(jObj.getString("lastName"));
+            user.setCompanyId(jObj.getLong("companyId"));
+            user.setCellNo(jObj.getString("cellNumber"));
+
+            if (jObj.getInt("isAdmin") == 1)
+            {
+                user.setIsAdmin(true);
+            }
+            else
+            {
+                user.setIsAdmin(false);
+            }
+
+            if (jObj.getInt("isBasic") == 1)
+            {
+                user.setIsBasic(true);
+            }
+            else
+            {
+                user.setIsBasic(false);
+            }
+
+            return user;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return null;
     }
 
 }

@@ -1,7 +1,9 @@
 package suplex.theblacklist;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import suplex.theblacklist.login.LoginActivity;
 import suplex.theblacklist.navDrawer.DrawerBaseActivity;
 
 public class LandingActivity extends DrawerBaseActivity {
@@ -12,7 +14,7 @@ public class LandingActivity extends DrawerBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_landing);
 
-//        startActivity(new Intent(this, LoginActivity.class));
+        startActivity(new Intent(this, LoginActivity.class));
         //splash screen before login
     }
 }

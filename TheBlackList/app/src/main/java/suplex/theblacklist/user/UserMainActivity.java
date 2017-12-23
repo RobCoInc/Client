@@ -10,16 +10,16 @@ import suplex.theblacklist.objects.User;
 
 public class UserMainActivity extends AppCompatActivity {
 
-    User currentUser;
+    private User currentUser;
 
-    Bundle extras;
+    private Bundle extras;
 
-    DatabaseHelper db;
+    private DatabaseHelper db;
 
-    TextView firstNameView;
-    TextView lastNameView;
-    TextView emailView;
-    TextView passwordView;
+    private TextView firstNameView;
+    private TextView lastNameView;
+    private TextView emailView;
+    private TextView passwordView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,9 +27,9 @@ public class UserMainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_user_main);
 
         firstNameView = (TextView) findViewById(R.id.user_main_first_name);
-        lastNameView = (TextView) findViewById(R.id.user_main_first_name);
-        emailView = (TextView) findViewById(R.id.user_main_first_name);
-        passwordView = (TextView) findViewById(R.id.user_main_first_name);
+        lastNameView = (TextView) findViewById(R.id.user_main_last_name);
+        emailView = (TextView) findViewById(R.id.user_main_email);
+        passwordView = (TextView) findViewById(R.id.user_main_password);
 
         db = new DatabaseHelper();
         extras = this.getIntent().getExtras();

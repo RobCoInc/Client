@@ -32,7 +32,10 @@
         <activity android:name=".admin.LocationListActivity" />
         <activity android:name=".admin.LocationActivity" />
         <activity android:name=".user.UserMainActivity" />
-        <activity android:name=".login.SuccessfulLoginActivity"></activity>
+        <activity android:name=".login.SuccessfulLoginActivity" />
+        <activity android:name=".user.MyShiftsActivity" />
+        <activity android:name=".user.UserActivity" />
+        <activity android:name=".user.MyArrestsActivity"></activity>
     </application>
 
 </manifest>

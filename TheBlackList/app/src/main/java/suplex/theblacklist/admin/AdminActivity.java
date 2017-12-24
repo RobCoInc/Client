@@ -18,11 +18,11 @@ public class AdminActivity extends DrawerBaseActivity {
 
     protected User admin;
 
-    String user_email;
+    private String user_email;
 
-    DatabaseHelper db;
+    private DatabaseHelper db;
 
-    Bundle extras;
+    private Bundle extras;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

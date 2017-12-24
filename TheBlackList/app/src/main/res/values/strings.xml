@@ -38,4 +38,6 @@
     <string name="assign_shifts">Assign Shifts</string>
     <string name="add_shift">Add Shift</string>
     <string name="make_arrest">Make Arrest</string>
+    <string name="my_shifts_button_text">My Shifts</string>
+    <string name="my_arrests_button_text">My Arrests</string>
 </resources>

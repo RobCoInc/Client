@@ -38,6 +38,18 @@
             android:layout_height="wrap_content"
             android:text="holder"/>
 
+        <Button
+            android:id="@+id/my_shifts_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/my_shifts_button_text"/>
+
+        <Button
+            android:id="@+id/my_arrests_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/my_arrests_button_text"/>
+
     </LinearLayout>
 
 </LinearLayout>

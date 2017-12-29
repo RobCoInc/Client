@@ -1,6 +1,7 @@
 package suplex.theblacklist.database;
 
 import android.os.AsyncTask;
+import android.util.Log;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -24,7 +25,7 @@ import suplex.theblacklist.objects.User;
 
 public class DatabaseHelper {
 
-    public class HttpGetRequest extends AsyncTask<String, Void, String> {
+    public static class HttpGetRequest extends AsyncTask<String, Void, String> {
         public static final String REQUEST_METHOD = "GET";
         public static final int READ_TIMEOUT = 15000;
         public static final int CONNECTION_TIMEOUT = 15000;
@@ -44,62 +45,52 @@ public class DatabaseHelper {
         }
     }
 
-    private User formUserObj(String jsonString)
-    {
-        User temp = new User();
-        JSONObject jsonObj;
+    public static class HttpPostRequest extends AsyncTask<String, String, String> {
+        public static final String REQUEST_METHOD = "POST";
+        public static final int READ_TIMEOUT = 15000;
+        public static final int CONNECTION_TIMEOUT = 15000;
 
-        try {
-            jsonObj = new JSONObject(jsonString);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        @Override
+        protected String doInBackground(String... params){
+            String stringUrl = params[0];
+            String stringJson = params[1];
+            String result;
+            String outputLine;
+
+            HttpHandler httpHandler = new HttpHandler();
+            result = httpHandler.postDataToServer(stringUrl, stringJson);
+            return result;
         }
-
-        return temp;
+        protected void onPostExecute(String result){
+            super.onPostExecute(result);
+        }
     }
 
-    public String checkUser(String email) {
-        HttpGetRequest checkUser = new HttpGetRequest();
-        String result = "{}";
-        String passwordStr = "";
+    public String addNewUser (User user)
+    {
+        HttpPostRequest postUser = new HttpPostRequest();
+        String response = "{}";
+        String json = formJSONUser(user);
 
         try {
-            result = checkUser.execute("http://159.203.30.147/api/users/getUserByEmail/" + email).get();
+            response = postUser.execute("http://159.203.30.147/api/users", json).get();
         } catch (InterruptedException e) {
             e.printStackTrace();
         } catch (ExecutionException e) {
             e.printStackTrace();
         }
 
+        //handle response
 
-        try {
-            JSONArray arr = new JSONArray(result);
-            JSONObject jObj = arr.getJSONObject(0);
-            passwordStr = jObj.getString("password");
-            return passwordStr;
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
-
-        return passwordStr;
+        return "success";
     }
 
-    public User getUserByEmail(String email)
+    private User formUserObj(String jsonString)
     {
-        HttpGetRequest getUser = new HttpGetRequest();
-        String result = "{}";
         User user = new User();
 
         try {
-            result = getUser.execute("http://159.203.30.147/api/users/getUserByEmail/" + email).get();
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        } catch (ExecutionException e) {
-            e.printStackTrace();
-        }
-
-        try {
-            JSONArray arr = new JSONArray(result);
+            JSONArray arr = new JSONArray(jsonString);
             JSONObject jObj = arr.getJSONObject(0);
 
             user.setId(jObj.getLong("_id"));
@@ -132,9 +123,92 @@ public class DatabaseHelper {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-
         return null;
     }
 
+    private String formJSONUser(User user)
+    {
+        JSONObject temp = new JSONObject();
+
+        try
+        {
+            temp.put("password", user.getPassword());
+            temp.put("email", user.getEmail());
+            temp.put("firstName", user.getFirstName());
+            temp.put("lastName", user.getLastName());
+            temp.put("companyId", user.getCompanyId());
+            temp.put("cellNumber", user.getCellNo());
+
+            if (user.getIsAdmin()) {
+                temp.put("isAdmin", 1);
+            }
+            else
+            {
+                temp.put("isAdmin", 0);
+            }
+
+            temp.put("isBasic", 0);
+
+            return temp.toString();
+        }
+        catch (JSONException e1)
+        {
+            Log.d("JWP", "Can't Format JSON");
+            e1.printStackTrace();
+        }
+        return null;
+    }
+
+    public String checkUser(String email) {
+        HttpGetRequest checkUser = new HttpGetRequest();
+        String result = "{}";
+        String passwordStr = "";
+
+        try {
+            result = checkUser.execute("http://159.203.30.147/api/users/getUserByEmail/" + email).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+
+        try {
+            JSONArray arr = new JSONArray(result);
+            JSONObject jObj = arr.getJSONObject(0);
+            passwordStr = jObj.getString("password");
+            return passwordStr;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        return passwordStr;
+    }
+
+    public User getUserByEmail(String email)
+    {
+        HttpGetRequest getUser = new HttpGetRequest();
+        String result = "{}";
+        User user;
+
+        try {
+            result = getUser.execute("http://159.203.30.147/api/users/getUserByEmail/" + email).get();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } catch (ExecutionException e) {
+            e.printStackTrace();
+        }
+
+        user = formUserObj(result);
+
+        if (user == null)
+        {
+            return null;
+        }
+        else
+        {
+            return user;
+        }
+    }
 }
 

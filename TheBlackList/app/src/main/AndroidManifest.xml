@@ -35,7 +35,8 @@
         <activity android:name=".login.SuccessfulLoginActivity" />
         <activity android:name=".user.MyShiftsActivity" />
         <activity android:name=".user.UserActivity" />
-        <activity android:name=".user.MyArrestsActivity"></activity>
+        <activity android:name=".user.MyArrestsActivity" />
+        <activity android:name=".user.newArrest.NewArrestTask"></activity>
     </application>
 
 </manifest>

@@ -1,13 +1,14 @@
 package suplex.theblacklist.user.newArrest;
 
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 
 import suplex.theblacklist.R;
 import suplex.theblacklist.objects.Arrest;
 import suplex.theblacklist.objects.Description;
 import suplex.theblacklist.user.UserActivity;
 
-public class NewArrestTask extends UserActivity {
+public class NewArrestTask extends AppCompatActivity {
 
     protected Arrest newArrest;
     protected Description newDescription;

@@ -37,7 +37,9 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private InputValidation inputValidation;
     private DatabaseHelper databaseHelper;
-    private User user;
+    private User newUser;
+
+    private String response;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -85,7 +87,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
      */
     private void initObjects() {
         inputValidation = new InputValidation(activity);
-        // databaseHelper = new DBHelper(activity);
+        databaseHelper = new DatabaseHelper();
         // user = new User();
     }
 
@@ -129,6 +131,11 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
                 textInputLayoutConfirmPassword, getString(R.string.error_password_match))) {
             return;
         }
+        newUser = createUserObject(textInputEditTextName.getText().toString().trim(), textInputEditTextEmail.getText().toString().trim(), textInputEditTextPassword.getText().toString().trim());
+
+        response = databaseHelper.addNewUser(newUser);
+
+        Snackbar.make(nestedScrollView, response, Snackbar.LENGTH_LONG).show();
 
 //        if (!databaseHelper.checkUser(textInputEditTextEmail.getText().toString().trim())) {
 //
@@ -149,6 +156,22 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 //        }
 
 
+    }
+    private User createUserObject(String firstName, String email, String password)
+    {
+        User temp = new User();
+
+        temp.setFirstName(firstName);
+        temp.setLastName("tester");
+        temp.setEmail(email);
+        temp.setPassword(password);
+        temp.setCellNo("1234567890");
+        temp.setCompanyId(69);
+        temp.setSecureNum(69);
+        temp.setIsAdmin(false);
+        temp.setIsBasic(false);
+
+        return temp;
     }
 
     /**

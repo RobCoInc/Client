@@ -9,43 +9,43 @@
     tools:context="suplex.theblacklist.user.newArrest.BasicDescriptionActivity">
 
     <EditText
-        android:id="@+id/editArrestName"
+        android:id="@+id/edit_arrest_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter_arrest_name"/>
 
     <EditText
-        android:id="@+id/editArrestHeight"
+        android:id="@+id/edit_arrest_height"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter_arrest_height"/>
 
     <EditText
-        android:id="@+id/editArrestWeight"
+        android:id="@+id/edit_arrest_weight"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter_arrest_weight"/>
 
     <EditText
-        android:id="@+id/editArrestHairColor"
+        android:id="@+id/edit_arrest_hair_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter_arrest_hair_color"/>
 
     <EditText
-        android:id="@+id/editArrestHairStyle"
+        android:id="@+id/edit_arrest_hair_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter_arrest_hair_style"/>
 
     <EditText
-        android:id="@+id/editArrestEyeColor"
+        android:id="@+id/edit_arrest_eye_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter_arrest_eye_color"/>
 
     <EditText
-        android:id="@+id/editArrestSkinColor"
+        android:id="@+id/edit_arrest_skin_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/enter_arrest_skin_color"/>

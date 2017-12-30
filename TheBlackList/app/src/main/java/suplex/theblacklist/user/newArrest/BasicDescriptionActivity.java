@@ -11,8 +11,10 @@ public class BasicDescriptionActivity extends NewArrestTask {
     private EditText mAliasEditText;
     private EditText mHeightEditText;
     private EditText mWeightEditText;
-    private EditText mEyeColorEditText;
+
     private EditText mHairColorEditText;
+    private EditText mHairStyleEditText;
+    private EditText mEyeColorEditText;
     private EditText mSkinColorEditText;
 
     @Override
@@ -22,6 +24,14 @@ public class BasicDescriptionActivity extends NewArrestTask {
 
         newArrest = new Arrest();
 
+        mAliasEditText = (EditText) findViewById(R.id.edit_arrest_name);
+        mHeightEditText = (EditText) findViewById(R.id.edit_arrest_height);
+        mWeightEditText = (EditText) findViewById(R.id.edit_arrest_weight);
+
+        mHairColorEditText = (EditText) findViewById(R.id.edit_arrest_hair_color);
+        mHairStyleEditText = (EditText) findViewById(R.id.edit_arrest_hair_style);
+        mEyeColorEditText = (EditText) findViewById(R.id.edit_arrest_eye_color);
+        mSkinColorEditText = (EditText) findViewById(R.id.edit_arrest_skin_color);
 
     }
 }

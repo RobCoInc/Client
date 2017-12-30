@@ -44,4 +44,12 @@
     <string name="good_morning_text">Good morning,</string>
     <string name="good_afternoon_text">Good Afternoon,</string>
     <string name="good_evening_text">Good Evening,</string>
+    <string name="title_activity_extra_description">ExtraDescriptionActivity</string>
+    <string name="enter_arrest_name">Enter Name or Alias...</string>
+    <string name="enter_arrest_height">Enter Height...</string>
+    <string name="enter_arrest_weight">Enter Weight...</string>
+    <string name="enter_arrest_hair_color">Enter Hair Color...</string>
+    <string name="enter_arrest_hair_style">Enter Hair Style...</string>
+    <string name="enter_arrest_eye_color">Enter Eye Color...</string>
+    <string name="enter_arrest_skin_color">Enter Skin Color...</string>
 </resources>

@@ -36,7 +36,12 @@
         <activity android:name=".user.MyShiftsActivity" />
         <activity android:name=".user.UserActivity" />
         <activity android:name=".user.MyArrestsActivity" />
-        <activity android:name=".user.newArrest.NewArrestTask"></activity>
+        <activity android:name=".user.newArrest.NewArrestTask" />
+        <activity android:name=".user.newArrest.BasicDescriptionActivity" />
+        <activity
+            android:name=".user.newArrest.ExtraDescriptionActivity"
+            android:label="@string/title_activity_extra_description"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>

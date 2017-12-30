@@ -1,11 +1,8 @@
 package suplex.theblacklist.user;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
 import suplex.theblacklist.R;
 import suplex.theblacklist.database.DatabaseHelper;
-import suplex.theblacklist.objects.User;
 
 public class MyShiftsActivity extends UserActivity {
 

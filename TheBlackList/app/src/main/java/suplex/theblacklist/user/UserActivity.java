@@ -10,7 +10,7 @@ import suplex.theblacklist.objects.User;
 
 public class UserActivity extends DrawerBaseActivity {
 
-    protected User currentUser;
+    protected static User currentUser;
 
     private String user_email;
 

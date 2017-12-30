@@ -1,9 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:gravity="center"
+    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="suplex.theblacklist.user.newArrest.BasicDescriptionActivity">
 
-</android.support.constraint.ConstraintLayout>
+    <EditText
+        android:id="@+id/editArrestName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_arrest_name"/>
+
+    <EditText
+        android:id="@+id/editArrestHeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_arrest_height"/>
+
+    <EditText
+        android:id="@+id/editArrestWeight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_arrest_weight"/>
+
+    <EditText
+        android:id="@+id/editArrestHairColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_arrest_hair_color"/>
+
+    <EditText
+        android:id="@+id/editArrestHairStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_arrest_hair_style"/>
+
+    <EditText
+        android:id="@+id/editArrestEyeColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_arrest_eye_color"/>
+
+    <EditText
+        android:id="@+id/editArrestSkinColor"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/enter_arrest_skin_color"/>
+
+</LinearLayout>

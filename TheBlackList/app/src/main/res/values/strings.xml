@@ -40,4 +40,8 @@
     <string name="make_arrest">Make Arrest</string>
     <string name="my_shifts_button_text">My Shifts</string>
     <string name="my_arrests_button_text">My Arrests</string>
+
+    <string name="good_morning_text">Good morning,</string>
+    <string name="good_afternoon_text">Good Afternoon,</string>
+    <string name="good_evening_text">Good Evening,</string>
 </resources>

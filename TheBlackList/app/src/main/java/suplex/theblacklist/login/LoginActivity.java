@@ -18,7 +18,7 @@ import suplex.theblacklist.navDrawer.DrawerBaseActivity;
 import suplex.theblacklist.user.UserMainActivity;
 import suplex.theblacklist.validation.InputValidation;
 
-public class LoginActivity extends DrawerBaseActivity implements View.OnClickListener {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private final AppCompatActivity activity = LoginActivity.this;
 
     private NestedScrollView nestedScrollView;

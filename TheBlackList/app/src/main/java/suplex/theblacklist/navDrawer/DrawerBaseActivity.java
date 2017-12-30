@@ -13,19 +13,24 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 import suplex.theblacklist.R;
+import suplex.theblacklist.objects.User;
 
 public abstract class DrawerBaseActivity extends AppCompatActivity implements MenuItem.OnMenuItemClickListener {
 
     private FrameLayout view_stub;
     private NavigationView navigation_view;
     private DrawerLayout mDrawerLayout;
-    private Menu drawerMenu;
     private ActionBarDrawerToggle mDrawerToggle;
     Toolbar mToolbar;
-
+    static TextView mUserNameHeader;
+    static TextView mTimeOfDay;
+    static View header;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +39,34 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Me
         view_stub = findViewById(R.id.view_stub);
         navigation_view = findViewById(R.id.navigation);
         mDrawerLayout = findViewById(R.id.drawer_layout);
-        drawerMenu = navigation_view.getMenu();
+        Menu drawerMenu = navigation_view.getMenu();
+        header = navigation_view.getHeaderView(0);
 
 
+//        setupHeader();
         setupToolbar();
         populateAdminMenu(navigation_view.getMenu());
         for (int i = 0; i < drawerMenu.size(); i++) {
             drawerMenu.getItem(i).setOnMenuItemClickListener(this);
         }
 
+    }
+
+    public static void setupHeader(User currentUser) {
+
+        mUserNameHeader = header.findViewById(R.id.nav_header_user_name);
+        mTimeOfDay = header.findViewById(R.id.nav_header_time_of_day);
+
+        mUserNameHeader.setText(currentUser.getFirstName());
+
+        Calendar calender = Calendar.getInstance();
+        if (6 < calender.get(Calendar.HOUR_OF_DAY) && calender.get(Calendar.HOUR_OF_DAY) < 12) {
+            mTimeOfDay.setText(R.string.good_morning_text);
+        } else if (12 <= calender.get(Calendar.HOUR_OF_DAY) && calender.get(Calendar.HOUR_OF_DAY) < 17) {
+            mTimeOfDay.setText(R.string.good_afternoon_text);
+        } else {
+            mTimeOfDay.setText(R.string.good_evening_text);
+        }
     }
 
     public void setupToolbar() {
@@ -150,4 +174,5 @@ public abstract class DrawerBaseActivity extends AppCompatActivity implements Me
 
         return super.onOptionsItemSelected(item);
     }
+
 }

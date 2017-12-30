@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import suplex.theblacklist.R;
 import suplex.theblacklist.database.DatabaseHelper;
+import suplex.theblacklist.navDrawer.DrawerBaseActivity;
 import suplex.theblacklist.objects.User;
 
 public class UserMainActivity extends UserActivity {
@@ -31,6 +32,7 @@ public class UserMainActivity extends UserActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_main);
 
+
         mFirstNameView = (TextView) findViewById(R.id.user_main_first_name);
         mLastNameView = (TextView) findViewById(R.id.user_main_last_name);
         mEmailView = (TextView) findViewById(R.id.user_main_email);
@@ -42,13 +44,14 @@ public class UserMainActivity extends UserActivity {
         db = new DatabaseHelper();
         extras = this.getIntent().getExtras();
 
-        if(extras != null) {
+        if (extras != null) {
             currentUser = (User) getIntent().getSerializableExtra("CURRENT");
 
             mFirstNameView.setText(currentUser.getFirstName());
             mLastNameView.setText(currentUser.getLastName());
             mEmailView.setText(currentUser.getEmail());
             mPasswordView.setText(currentUser.getPassword());
+            DrawerBaseActivity.setupHeader(currentUser);
         }
 
         mMyShiftsButton.setOnClickListener(new View.OnClickListener() {
